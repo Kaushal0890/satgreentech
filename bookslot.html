@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Your Solar Slot</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #e6f7ff;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .book-slot-container {
+        max-width: 500px;
+        background: white;
+        margin: auto;
+        padding: 30px 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+      .menu-button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #28a745;
+        border: none;
+        color: #ffffff;
+        font-size: 22px;
+        padding: 15px 25px;
+        width: 200px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-button span {
+        position: relative;
+        padding-left: 30px;
+        transition: padding-left 0.3s ease;
+      }
+
+      .menu-button span::before {
+        content: "\25C0"; /* ◀ back icon */
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transition: left 0.3s ease;
+      }
+
+      .menu-button:hover span::before {
+        left: -5px;
+      }
+      .book-slot-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #1a8f6d;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 6px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      button {
+        background: #1a8f6d;
+        color: white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .success-message {
+        display: none;
+        color: green;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      label {
+        margin-top: 10px;
+        display: block;
+        font-weight: bold;
+      }
+
+      @media (max-width: 600px) {
+        .book-slot-container {
+          padding: 20px 15px;
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+          font-size: 15px;
+          padding: 10px;
+        }
+
+        .back-button {
+          font-size: 20px;
+        }
+
+        .book-slot-container h2 {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="menu-button" id="backBtn"
+      ><span>Back</span></a
+    >
+
+    <div class="book-slot-container">
+      <h2>📅 Book Your Slot</h2>
+      <form id="slotForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="number" id="phone" placeholder="Phone Number" required />
+        <textarea
+          id="address"
+          placeholder="Your Address"
+          rows="3"
+          required
+        ></textarea>
+
+        <select id="company" required>
+          <option value="">Select Company</option>
+          <option>Adani</option>
+          <option>Tata Power</option>
+          <option>Goldi Solar</option>
+          <option>Waaree</option>
+          <option>RAAJ</option>
+        </select>
+
+        <select id="capacity" required>
+          <option value="">Required Solar Capacity (kW)</option>
+          <option>2 kW</option>
+          <option>3 kW</option>
+          <option>5 kW</option>
+          <option>10+ kW</option>
+        </select>
+
+        <label for="date">Available Date:</label>
+        <input type="date" id="date" required />
+
+        <button type="submit">Submit</button>
+      </form>
+      <div class="success-message" id="successMsg">
+        ✅ Thank you! Slot booked successfully.
+      </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      const currentURL = window.location.pathname;
+      if (currentURL !== "/" && currentURL !== "/index.html") {
+        document.getElementById("backBtn").style.display = "inline";
+      }
+
+      $("#slotForm").on("submit", function (e) {
+        e.preventDefault();
+        $("#successMsg").hide().slideDown();
+        this.reset();
+      });
+    </script>
+  </body>
+</html>

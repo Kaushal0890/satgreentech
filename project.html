@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects – SAT GREENTECH</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e6f7ff;
+      }
+
+      /* Top Project Cards Section */
+      .projects {
+        background-color: #e6f7ff;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: #1a8f6d;
+        margin-bottom: 40px;
+        font-weight: bold;
+      }
+
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .info-card {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .info-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .info-card h3 {
+        color: #1a8f6d;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .info-card p {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      /* Bottom Preview Scroll Section */
+      .projects-preview {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #f9f9f9;
+      }
+
+      .projects-preview h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #1a8f6d;
+      }
+
+      .projects-preview p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 30px;
+      }
+      .menu-button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #28a745;
+        border: none;
+        color: #ffffff;
+        font-size: 22px;
+        padding: 15px 25px;
+        width: 200px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-button span {
+        position: relative;
+        padding-left: 30px;
+        transition: padding-left 0.3s ease;
+      }
+
+      .menu-button span::before {
+        content: "\25C0"; /* ◀ back icon */
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transition: left 0.3s ease;
+      }
+
+      .menu-button:hover span::before {
+        left: -5px;
+      }
+
+      .project-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding: 10px 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        justify-content: center;
+      }
+      .image-card:hover {
+        transform: scale(1.05);
+      }
+
+      .image-card {
+        flex: 0 0 auto;
+        width: auto;
+        scroll-snap-align: center;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .image-card p {
+        margin: 10px 0;
+        font-weight: 500;
+        color: #444;
+      }
+
+      @media (max-width: 768px) {
+        .section-title,
+        .projects-preview h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="menu-button" id="backBtn"
+      ><span>Back</span></a
+    >
+
+    <!-- Top Info Projects -->
+    <section class="projects" id="projects">
+      <h2 class="section-title">🏗️ Our Projects</h2>
+      <div class="projects-container">
+        <div class="info-card">
+          <h3>1. Empowering India with Solar Energy</h3>
+          <p>
+            We've successfully installed over
+            <strong>30,000+ solar systems</strong> across homes, businesses,
+            schools, and industries.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>2. Clean Energy for Every Sector</h3>
+          <p>
+            From <strong>residential rooftops</strong> to
+            <strong>large commercial plants</strong>, our projects reduce carbon
+            footprints and energy bills.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>3. Delivered with Precision</h3>
+          <p>
+            All projects are executed by certified engineers, ensuring
+            <strong>efficiency</strong> and
+            <strong>long-term reliability</strong>.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>4. Making India Greener</h3>
+          <p>
+            Our installations have helped cut over
+            <strong>50,000 tons of CO₂ emissions</strong> — and we’re just
+            getting started.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>5. Powered by Trust</h3>
+          <p>
+            From metro cities to rural villages,
+            <strong>our clients trust us</strong> to light up lives with clean
+            solar power.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrollable Image Preview -->
+    <section class="projects-preview">
+      <h2>Project Preview</h2>
+      <p>
+        Explore our success stories: A glimpse into our marquee EPC Projects
+      </p>
+
+      <div class="project-scroll">
+        <div class="image-card">
+          <img src="img/pro1.jpg" alt="Continuum" />
+          <p>Continuum</p>
+        </div>
+        <div class="image-card">
+          <img src="img/pro2.jpg" alt="DVC" />
+          <p>DVC</p>
+        </div>
+        <div class="image-card">
+          <img src="img/pro3.jpg" alt="Trident" />
+          <p>Trident</p>
+        </div>
+      </div>
+    </section>
+    <section class="portfolio" id="portfolio">
+      <h2>📸 Our Solar Project Portfolio</h2>
+
+      <div class="portfolio-section">
+        <h3>🏠 Rooftop Projects (30000<sup>+</sup>)</h3>
+        <div class="portfolio-gallery">
+          <div class="portfolio-card">
+            <img src="img/1.webp" alt="Home Rooftop Solar" />
+            <p>Residential - 3KW, Junagadh</p>
+          </div>
+          <div class="portfolio-card">
+            <img src="img/2.jpeg" alt="Home Rooftop Solar" />
+            <p>Residential - 5KW, Rajkot</p>
+          </div>
+          <div class="portfolio-card">
+            <img src="img/3.webp" alt="Home Rooftop Solar" />
+            <p>Bungalow - 10KW, Ahmedabad</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-section">
+        <h3>🏢 Commercial Projects (25<sup>+</sup>)</h3>
+        <div class="portfolio-gallery">
+          <div class="portfolio-card">
+            <img src="img/fec.png " alt="Factory Solar" />
+            <p>Factory - 50KW, Bhesan</p>
+          </div>
+          <div class="portfolio-card">
+            <img src="img/school.jpg" alt="School Solar" />
+            <p>School - 25KW, Bhavnagar</p>
+          </div>
+          <div class="portfolio-card">
+            <img src="img/mall.webp" alt="Mall Solar" />
+            <p>Mall - 80KW, Rajkot</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .portfolio {
+        padding: 60px 20px;
+        background-color: #f5fff8;
+        text-align: center;
+      }
+
+      .portfolio h2 {
+        font-size: 2.5rem;
+        color: #1a8f6d;
+        margin-bottom: 40px;
+      }
+
+      .portfolio-section h3 {
+        color: #333;
+        margin: 30px 0 20px;
+        font-size: 1.6rem;
+      }
+
+      .portfolio-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+      }
+
+      .portfolio-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        transition: transform 0.3s;
+      }
+
+      .portfolio-card:hover {
+        transform: scale(1.05);
+      }
+
+      .portfolio-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .portfolio-card p {
+        padding: 15px;
+        font-weight: bold;
+        color: #444;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .portfolio-card {
+          width: 90%;
+        }
+      }
+    </style>
+
+    <!-- Animation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".info-card");
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, i * 150);
+        });
+      });
+      const currentURL = window.location.pathname;
+
+      if (currentURL !== "/" && currentURL !== "/index.html") {
+        document.getElementById("backBtn").style.display = "inline";
+      }
+    </script>
+  </body>
+</html>

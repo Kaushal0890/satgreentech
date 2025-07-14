@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Services - Full Screen</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        font-family: Arial, sans-serif;
+        height: 100%;
+        background: #f0f8ff;
+      }
+
+      .menu-button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #28a745;
+        border: none;
+        color: #ffffff;
+        font-size: 22px;
+        padding: 15px 25px;
+        width: 200px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-button span {
+        position: relative;
+        padding-left: 30px;
+        transition: padding-left 0.3s ease;
+      }
+
+      .menu-button span::before {
+        content: "\25C0"; /* ◀ back icon */
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transition: left 0.3s ease;
+      }
+
+      .menu-button:hover span::before {
+        left: -5px;
+      }
+
+      h2 {
+        text-align: center;
+        padding: 30px 0 10px;
+        color: #333;
+        font-size: 32px;
+      }
+
+      .services-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .service-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 280px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-icon {
+        font-size: 40px;
+        color: #17a2b8;
+        margin-bottom: 15px;
+      }
+
+      .service-title {
+        color: #007b8a;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .service-description {
+        color: #555;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .read-more {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .services-container {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="menu-button" id="backBtn"
+      ><span>Back</span></a
+    >
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <div class="service-title">Site Survey & Feasibility</div>
+        <div class="service-description">
+          Roof inspection, shadow analysis, load assessment.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <div class="service-title">System Design</div>
+        <div class="service-description">
+          Customized layout, inverter & structure planning.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📄</div>
+        <div class="service-title">Documentation</div>
+        <div class="service-description">
+          Net metering, DISCOM approvals, subsidy filing.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">Equipment Supply</div>
+        <div class="service-description">
+          Tier-1 panels, inverter, structures, cables.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔌</div>
+        <div class="service-title">Installation & Commissioning</div>
+        <div class="service-description">Complete setup and safety checks.</div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔁</div>
+        <div class="service-title">Net Metering Setup</div>
+        <div class="service-description">
+          Bi-directional meter, grid sync & approval.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-title">Operation & Maintenance</div>
+        <div class="service-description">
+          Panel cleaning, fault checks, monitoring.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <div class="service-title">Warranty & AMC</div>
+        <div class="service-description">
+          25 yrs panel & 5-10 yrs inverter warranty with AMC.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💰</div>
+        <div class="service-title">Financing Help</div>
+        <div class="service-description">
+          Loan tie-ups, EMI, subsidy guidance.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <div class="service-title">Smart Monitoring</div>
+        <div class="service-description">
+          App-based energy tracking & fault alerts.
+        </div>
+        <button class="read-more">Read More</button>
+      </div>
+    </div>
+
+    <script>
+      const currentURL = window.location.pathname;
+      if (currentURL !== "/" && currentURL !== "/index.html") {
+        document.getElementById("backBtn").style.display = "inline";
+      }
+    </script>
+  </body>
+</html>

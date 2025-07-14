@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABOUT</title>
+
+    <style>
+      body {
+        background-color: #e6f7ff;
+      }
+
+      .menu-button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #28a745;
+        border: none;
+        color: #ffffff;
+        font-size: 22px;
+        padding: 15px 25px;
+        width: 200px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-button span {
+        position: relative;
+        padding-left: 30px;
+        transition: padding-left 0.3s ease;
+      }
+
+      .menu-button span::before {
+        content: "\25C0"; /* ◀ back icon */
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transition: left 0.3s ease;
+      }
+
+      .menu-button:hover span::before {
+        left: -5px;
+      }
+
+      .about {
+        background: #f9f9f9;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: #1a8f6d;
+        margin-bottom: 40px;
+        font-weight: bold;
+      }
+
+      .about-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .about-card {
+        background: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      .about-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .about-card h3 {
+        color: #1a8f6d;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .about-card p {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.6;
+      }
+
+      .about-us {
+        background-color: #f4fffa;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .about-us h2 {
+        font-size: 2.5rem;
+        color: #1a8f6d;
+        margin-bottom: 20px;
+      }
+
+      .about-us p {
+        max-width: 800px;
+        margin: 0 auto 30px;
+        color: #333;
+        font-size: 1.1rem;
+      }
+
+      .about-us h3 {
+        font-size: 1.6rem;
+        margin-top: 30px;
+        color: #157354;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 30px;
+        max-width: 1100px;
+        margin: auto;
+        margin-top: 30px;
+      }
+
+      .about-item {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        padding: 15px;
+        transition: 0.3s;
+      }
+
+      .about-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .about-item img {
+        max-width: 100%;
+        height: 150px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+
+      .about-item p {
+        color: #555;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+      .team-section {
+        padding: 60px 20px;
+        background-color: #f9f9f9;
+        text-align: center;
+      }
+
+      .team-section h2 {
+        font-size: 2.5rem;
+        color: #1a8f6d;
+        margin-bottom: 40px;
+      }
+
+      .team-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .team-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .team-card:hover {
+        transform: scale(1.03);
+      }
+
+      .team-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+
+      .team-card h3 {
+        color: #1a8f6d;
+        margin-bottom: 5px;
+      }
+
+      .team-card p {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 600px) {
+        .about-us h2 {
+          font-size: 2rem;
+        }
+
+        .about-item img {
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="menu-button" id="backBtn"
+      ><span>Back</span></a
+    >
+
+    <section class="about" id="about">
+      <h2 class="section-title">🌞 About Us</h2>
+      <div class="about-container">
+        <div class="about-card">
+          <h3>1. Powering a Cleaner Tomorrow</h3>
+          <p>
+            SAT GREENTECH PVT. LTD. is on a mission to make India
+            energy-independent with clean and affordable solar power.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>2. 30,000+ Installations Strong</h3>
+          <p>
+            With thousands of successful rooftop and commercial solar projects,
+            we've earned trust across the nation.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>3. Driven by Innovation & Trust</h3>
+          <p>
+            Our expert team uses the latest technology to deliver reliable,
+            cost-effective solar solutions.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>4. Green Energy for All</h3>
+          <p>
+            We believe clean energy should be accessible to every home,
+            business, and institution in India.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>5. Committed to Sustainability</h3>
+          <p>
+            Every solar panel we install brings us one step closer to a greener,
+            cleaner planet.
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>6. Customer-Centric Approach</h3>
+          <p>
+            From consultation to post-installation service — your satisfaction
+            is our top priority.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-us" id="about">
+      <h2>👷‍♂️ About SAT GREENTECH PVT. LTD.</h2>
+      <p>
+        We are a leading solar EPC (Engineering, Procurement, Construction)
+        company with years of experience in delivering reliable and affordable
+        solar energy solutions across India. From rooftops to commercial MW
+        projects, we handle it all.
+      </p>
+
+      <h3>🔩 Our Installation Structure Includes:</h3>
+      <div class="about-grid">
+        <div class="about-item">
+          <img src="img/pipe.jpg" alt="Hindustan Pipe" />
+          <p>Appolo Pipe (GI/HDPE) for structure frame & conduit</p>
+        </div>
+        <div class="about-item">
+          <img src="img/wire.jpg" alt="Polycab Cable" />
+          <p>Polycab Solar DC Cable (UV Protected)</p>
+        </div>
+        <div class="about-item">
+          <img src="img/pvc.jpg" alt="Polycab PVC Pipe" />
+          <p>Polycab PVC Pipe for wiring protection</p>
+        </div>
+        <div class="about-item">
+          <img src="img/poly.jpeg" alt="Polycab Inverter" />
+          <p>Polycab Inverter – Advanced MPPT & Remote Monitoring</p>
+        </div>
+        <div class="about-item">
+          <img src="img/deye.png" alt="Deye Inverter" />
+          <p>Deye Hybrid Inverter for energy storage (optional)</p>
+        </div>
+        <div class="about-item">
+          <img src="img/pp.webp" alt="Solar Panels" />
+          <p>Tier-1 A-grade Solar Panels with <b>25</b>-year warranty</p>
+        </div>
+        <div class="about-item">
+          <img src="img/eathing.jpg" alt="Solar Panels" />
+          <p>Heavy 3-Point Earthing System</p>
+        </div>
+        <div class="about-item">
+          <img src="img/clap.jpeg" alt="Solar Panels" />
+          <p>
+            <strong>CLAP Frame</strong> (Channel, L-Angle, Pipe) - for
+            heavy-duty & long-life structure.
+          </p>
+        </div>
+      </div>
+      <section class="team-section" id="team">
+        <h2>🌟 Our Leadership</h2>
+        <div class="team-container">
+          <!-- Founder Card -->
+          <div class="team-card">
+            <img src="img/mayur.jpeg" alt="Founder Photo" />
+            <h3>Mr. Mayur Pansuriya</h3>
+            <p><strong>Founder & CEO</strong></p>
+            <p>
+              Mayur has led SAT GREENTECH since its beginning, turning vision
+              into a leading solar company with 30,000+ installations across
+              India.
+            </p>
+          </div>
+
+          <!-- Marketing Manager Card -->
+          <div class="team-card">
+            <img src="img/neel.jpeg" alt="Marketing Manager Photo" />
+            <h3>Mr. Neel Pansuriya</h3>
+            <p><strong>Marketing Manager</strong></p>
+            <p>
+              Neel brings energy and strategy to our marketing. She builds brand
+              trust, connects customers, and drives solar awareness nationwide.
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <script>
+      // Animate about cards on load
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".about-card");
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, i * 150);
+        });
+
+        // Show back button only if not on homepage
+        const backBtn = document.getElementById("backBtn");
+        const isHome =
+          location.pathname.endsWith("index.html") || location.pathname === "/";
+        if (!isHome) {
+          backBtn.style.display = "inline";
+        }
+      });
+    </script>
+  </body>
+</html>

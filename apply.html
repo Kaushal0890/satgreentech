@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Apply Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f0f8ff;
+      }
+      .menu-button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #28a745;
+        border: none;
+        color: #ffffff;
+        font-size: 22px;
+        padding: 15px 25px;
+        width: 200px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .menu-button span {
+        position: relative;
+        padding-left: 30px;
+        transition: padding-left 0.3s ease;
+      }
+
+      .menu-button span::before {
+        content: "\25C0"; /* ◀ back icon */
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 1;
+        transition: left 0.3s ease;
+      }
+
+      .menu-button:hover span::before {
+        left: -5px;
+      }
+      .box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 20px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: green;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+      select,
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      .result {
+        background: #e8f5e9;
+        padding: 15px;
+        margin-top: 15px;
+        font-size: 1.1em;
+        border-radius: 5px;
+        color: #006400;
+      }
+      .btn {
+        background: green;
+        color: white;
+        padding: 12px;
+        margin-top: 20px;
+        border: none;
+        font-weight: bold;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .btn:hover {
+        background: darkgreen;
+      }
+      .form-section {
+        display: none;
+      }
+      .summary-box {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-left: 4px solid #1a8f6d;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .final-box {
+        background: #d1ffd1;
+        padding: 15px;
+        margin-top: 10px;
+        border: 2px solid green;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #006400;
+        text-align: center;
+      }
+      .final-form-amount {
+        background: #e0ffe0;
+        padding: 10px;
+        border: 1px solid green;
+        border-radius: 5px;
+        margin-top: 15px;
+        font-size: 16px;
+        color: green;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="javascript:history.back()" class="menu-button" id="backBtn"
+      ><span>Back</span></a
+    >
+
+    <!-- Calculator -->
+    <div class="box" id="calculatorSection">
+      <h2>🔋 Solar Price Calculator</h2>
+
+      <label>User Type</label>
+      <select id="userType">
+        <option value="residential">Residential</option>
+        <option value="commercial">Commercial</option>
+      </select>
+
+      <label>Select Company</label>
+      <select id="company">
+        <option value="Adani">Adani</option>
+        <option value="Tata">Tata</option>
+        <option value="Goldi">Goldi</option>
+        <option value="Raaj">Raaj</option>
+      </select>
+
+      <label>Select KW</label>
+      <select id="kw">
+        <option value="1">1 KW</option>
+        <option value="2">2 KW</option>
+        <option value="3">3 KW</option>
+        <option value="4">4 KW</option>
+        <option value="5">5 KW</option>
+        <option value="6">6 KW</option>
+        <option value="7">7 KW</option>
+        <option value="8">8 KW</option>
+        <option value="9">9 KW</option>
+        <option value="10">10 KW</option>
+      </select>
+
+      <div class="result" id="priceDetails"></div>
+      <div class="final-box" id="finalAmountBox"></div>
+
+      <button class="btn" onclick="showForm()">Apply Now</button>
+    </div>
+
+    <!-- Application Form -->
+    <div class="box form-section" id="applyForm">
+      <h2>📄 Apply for Solar Installation</h2>
+
+      <!-- Back Button -->
+      <button
+        class="btn"
+        style="background: #ccc; color: black"
+        onclick="goBack()"
+      >
+        🔙 Back to Calculator
+      </button>
+
+      <div class="summary-box" id="summary"></div>
+
+      <!-- Form Fields -->
+      <label>Electric Bill Name</label>
+      <input type="text" id="billName" required />
+
+      <label>Mobile Number</label>
+      <input
+        type="tel"
+        id="mobile"
+        maxlength="10"
+        placeholder="Enter 10-digit mobile number"
+        required
+      />
+
+      <label>Upload Bill Image</label>
+      <input type="file" id="billImg" accept="image/*" />
+
+      <label>Bank Account Name</label>
+      <input type="text" id="bankName" required />
+
+      <label>Upload Bank Passbook</label>
+      <input type="file" id="passImg" accept="image/*" />
+
+      <div class="final-form-amount" id="formFinalAmount"></div>
+
+      <label>Payment Method</label>
+      <select id="paymentType">
+        <option value="Cash">Cash</option>
+        <option value="Cheque">Cheque</option>
+      </select>
+
+      <button class="btn" onclick="submitForm()">Submit</button>
+    </div>
+
+    <script>
+      const currentURL = window.location.pathname;
+      if (currentURL !== "/" && currentURL !== "/index.html") {
+        document.getElementById("backBtn").style.display = "inline";
+      }
+      const company = document.getElementById("company");
+      const kwSelect = document.getElementById("kw");
+      const userType = document.getElementById("userType");
+      const priceBox = document.getElementById("priceDetails");
+      const finalAmountBox = document.getElementById("finalAmountBox");
+      const formFinalAmount = document.getElementById("formFinalAmount");
+
+      const priceMap = {
+        Adani: 46296,
+        Tata: 44500,
+        Goldi: 42300,
+        Raaj: 41000,
+      };
+
+      let calculatedData = {};
+
+      function calculate() {
+        const kw = parseFloat(kwSelect.value);
+        const brand = company.value;
+        const user = userType.value;
+        const rate = priceMap[brand];
+
+        let subsidy = 0;
+        if (user === "residential") {
+          if (kw === 1) subsidy = 30000;
+          else if (kw === 2) subsidy = 48000;
+          else subsidy = 78000;
+        }
+
+        const installation = 5000;
+        const total = kw * rate;
+        const gst = total * 0.18;
+        const final = total + installation + gst - subsidy;
+
+        calculatedData = {
+          kw,
+          brand,
+          user,
+          rate,
+          total,
+          installation,
+          gst,
+          subsidy,
+          final,
+        };
+
+        priceBox.innerHTML = `
+        KW Price: ₹${rate}<br>
+        Total Price: ₹${total.toFixed(2)}<br>
+        Installation: ₹${installation}<br>
+        GST (18%): ₹${gst.toFixed(2)}<br>
+        Govt. Subsidy: ₹${subsidy}<br>
+        Final Amount: ₹${final.toFixed(2)}
+      `;
+
+        finalAmountBox.innerText = `Final Amount: ₹${final.toFixed(2)}`;
+        formFinalAmount.innerText = `Payable Final Amount: ₹${final.toFixed(
+          2
+        )}`;
+      }
+
+      function showForm() {
+        calculate();
+        const summary = document.getElementById("summary");
+        summary.innerHTML = `
+        <b>Summary:</b><br>
+        User Type: ${calculatedData.user}<br>
+        Company: ${calculatedData.brand}<br>
+        KW: ${calculatedData.kw}<br>
+        Final Price: ₹${calculatedData.final.toFixed(2)}
+      `;
+        formFinalAmount.innerText = `Payable Final Amount: ₹${calculatedData.final.toFixed(
+          2
+        )}`;
+        document.getElementById("applyForm").style.display = "block";
+        document
+          .getElementById("applyForm")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function goBack() {
+        document.getElementById("applyForm").style.display = "none";
+        document
+          .getElementById("calculatorSection")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function submitForm() {
+        const billName = document.getElementById("billName").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const billImg = document.getElementById("billImg").files[0];
+        const bankName = document.getElementById("bankName").value.trim();
+        const passImg = document.getElementById("passImg").files[0];
+        const payment = document.getElementById("paymentType").value;
+
+        const mobileValid = /^[0-9]{10}$/.test(mobile);
+
+        if (
+          !billName ||
+          !mobileValid ||
+          !billImg ||
+          !bankName ||
+          !passImg ||
+          !payment
+        ) {
+          alert(
+            "❌ Please fill all fields correctly.\n📱 Enter valid 10-digit mobile number."
+          );
+          return;
+        }
+
+        const data = {
+          userType: calculatedData.user,
+          company: calculatedData.brand,
+          kw: calculatedData.kw,
+          finalAmount: calculatedData.final,
+          billName,
+          mobile,
+          bankName,
+          payment,
+        };
+
+        alert("✅ Application Submitted:\n\n" + JSON.stringify(data, null, 2));
+
+        document.getElementById("billName").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("bankName").value = "";
+        document.getElementById("billImg").value = "";
+        document.getElementById("passImg").value = "";
+        document.getElementById("paymentType").value = "Cash";
+
+        document.getElementById("applyForm").style.display = "none";
+        document
+          .getElementById("calculatorSection")
+          .scrollIntoView({ behavior: "smooth" });
+
+        userType.value = "residential";
+        company.value = "Adani";
+        kwSelect.value = "1";
+        calculate();
+      }
+
+      company.addEventListener("change", calculate);
+      kwSelect.addEventListener("change", calculate);
+      userType.addEventListener("change", calculate);
+      window.onload = calculate;
+    </script>
+  </body>
+</html>
