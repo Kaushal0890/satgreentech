@@ -1,0 +1,306 @@
+/* === 1. Global Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  background: url("img/sun.jpg") no-repeat center center/cover;
+}
+
+/* === 2. Header / Navigation === */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-links a {
+  position: relative;
+  margin: 0 10px;
+  text-decoration: none;
+  color: green;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: green;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.menu-toggle.hide {
+  display: none !important;
+}
+
+.slide-menu {
+  position: fixed;
+  top: 60px;
+  right: -250px;
+  width: 250px;
+  background: #f8f8f8;
+  height: 100%;
+  transition: right 0.3s ease;
+  z-index: 99;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.slide-menu.open {
+  right: 0;
+}
+
+.slide-menu .close-btn {
+  text-align: right;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.slide-menu a {
+  position: relative;
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: green;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.slide-menu a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 8px;
+  transition: width 0.3s ease;
+}
+
+.slide-menu a:hover::after {
+  width: calc(100% - 40px);
+}
+
+/* === 3. Home Section === */
+.home {
+  color: white;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.home h1 {
+  font-size: 2.5em;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.home h1 b {
+  color: green;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.home h1 b:hover {
+  color: #ff9800;
+  transform: scale(1.2);
+}
+
+/* === 4. Buttons === */
+.book-slot-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.book-slot-btn {
+  background-color: #1a8f6d;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.book-slot-btn:hover {
+  background-color: #138f58;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* === 5. Contact Section === */
+.contact-section {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: green;
+}
+
+#contactForm {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contactForm input,
+#contactForm textarea {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#contactForm button {
+  background-color: #1a8f6d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === 6. Footer === */
+.footer {
+  background-color: #e6f7ff;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: large;
+  border-top: 1px solid #ccc;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+.footer img {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.footer h3 {
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.footer p,
+.footer a {
+  color: #333;
+  line-height: 1.6;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer a:hover {
+  color: #1bc41b;
+}
+
+.footer .whatsapp {
+  color: #1bc41b;
+  font-weight: bold;
+}
+
+#FooterS {
+  background: #1a8f6d;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* === 7. Misc Elements === */
+marquee {
+  color: green;
+  font-weight: bold;
+  background: #f0f0f0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#war {
+  width: 280px;
+  padding-top: 140px;
+}
+
+/* === 8. Media Queries === */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column {
+    margin: 20px 0;
+  }
+}
